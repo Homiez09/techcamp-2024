@@ -7,11 +7,6 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    colors: {
-      primary: "#06011F",
-      secondary: "#EC1C24",
-      white: "#FFFFFF"
-    },
     container: {
       center: true,
     },
@@ -19,6 +14,10 @@ const config: Config = {
       backgroundImage: {
         "primary-texture":  "linear-gradient(to bottom, transparent, #06011F), url('/assets/background/loop-bg-small.gif')",
         "secondary-texture":  "linear-gradient(to top, transparent, #06011F), url('/assets/background/loop-pixel-bg.gif')",
+      },
+      colors: {
+        primary: "#06011F",
+        secondary: "#EC1C24",
       },
     },
   },
