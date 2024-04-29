@@ -7,11 +7,18 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    colors: {
+      primary: "#06011F",
+      secondary: "#EC1C24",
+      white: "#FFFFFF"
+    },
+    container: {
+      center: true,
+    },
     extend: {
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "primary-texture":  "linear-gradient(to bottom, transparent, #06011F), url('/assets/background/loop-bg-small.gif')",
+        "secondary-texture":  "linear-gradient(to top, transparent, #06011F), url('/assets/background/loop-pixel-bg.gif')",
       },
     },
   },
