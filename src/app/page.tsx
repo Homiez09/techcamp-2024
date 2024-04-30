@@ -3,6 +3,7 @@ import { MakiArrow } from "@/icons/Arrow";
 import About from "@/components/sections/About";
 import ScrollToSection from "@/components/ScrollToSection";
 import TechCamp1 from "@/components/sections/TechCamp1";
+import Contact from "@/components/sections/Contact";
 
 export default function Page() {
   return (
@@ -24,6 +25,7 @@ export default function Page() {
       <div className="min-h-screen bg-secondary-texture bg-center pt-20">
         <About />
         <TechCamp1 />
+        <Contact />
       </div>
     </>
   )
