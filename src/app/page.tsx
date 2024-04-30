@@ -4,6 +4,7 @@ import ScrollToSection from "@/components/ScrollToSection";
 import TechCamp1 from "@/components/sections/TechCamp1";
 import Contact from "@/components/sections/Contact";
 import IconClient from "@/components/IconClient";
+import Partners from "@/components/sections/partners";
 
 export default function Page() {
   return (
@@ -25,6 +26,7 @@ export default function Page() {
       <div className="min-h-screen bg-secondary-texture bg-center pt-20">
         <About />
         <TechCamp1 />
+        <Partners />
         <Contact />
       </div>
     </>
