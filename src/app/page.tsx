@@ -1,8 +1,9 @@
 import Image from "next/image";
-import { MakiArrow } from "@/icons/Arrow";
 import About from "@/components/sections/About";
 import ScrollToSection from "@/components/ScrollToSection";
 import TechCamp1 from "@/components/sections/TechCamp1";
+import Contact from "@/components/sections/Contact";
+import IconClient from "@/components/IconClient";
 
 export default function Page() {
   return (
@@ -14,7 +15,7 @@ export default function Page() {
             <ScrollToSection
               className="bg-secondary rounded-xl px-8 py-3 flex flex-row items-center justify-center gap-2 font-bold text-white hover:cursor-pointer"
               to="about"
-              icon={<MakiArrow color="white" className="w-4 h-auto" />}
+              icon={<IconClient icon="maki:arrow" width="16" height="16" className="text-white"/>}
               content='รายละเอียดค่าย' />
             <Image src="/assets/logo/tech-x-school.png" alt="techcamp2-logo" width={354} height={177} className="w-auto h-auto" />
           </div>
@@ -24,6 +25,7 @@ export default function Page() {
       <div className="min-h-screen bg-secondary-texture bg-center pt-20">
         <About />
         <TechCamp1 />
+        <Contact />
       </div>
     </>
   )
