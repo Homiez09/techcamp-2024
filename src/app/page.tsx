@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { MakiArrow } from "@/icons/Arrow";
-import { Link } from "react-scroll";
 import About from "@/components/sections/About";
 import ScrollToSection from "@/components/ScrollToSection";
+import TechCamp1 from "@/components/sections/TechCamp1";
 
 export default function Page() {
   return (
@@ -21,8 +21,9 @@ export default function Page() {
         </div>
       </section>
 
-      <div className="min-h-screen bg-secondary-texture bg-center">
+      <div className="min-h-screen bg-secondary-texture bg-center pt-20">
         <About />
+        <TechCamp1 />
       </div>
     </>
   )

@@ -10,7 +10,7 @@ export default function Section({
     className?: string;
   }>) {
     return (
-        <section id={id} className={`py-40 px-5 items-center text-white ${className}`}>
+        <section id={id} className={`py-20 px-5 items-center text-white ${className}`}>
             {children}
         </section>
     )

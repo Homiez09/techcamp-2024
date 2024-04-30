@@ -20,7 +20,7 @@ export default function ScrollToSection({
             smooth={true}
             offset={50}
             duration={500}
-            className={className}>
+            className={'flex flex-row ' + className}>
             {content}{icon}
         </Link>
     )
