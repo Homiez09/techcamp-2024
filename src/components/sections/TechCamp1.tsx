@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Carousel from "../Carousel";
 import Section from "../section";
-import Image from "next/image";
 import { MakiArrow } from "@/icons/Arrow";
 
 export default function TechCamp1() {
