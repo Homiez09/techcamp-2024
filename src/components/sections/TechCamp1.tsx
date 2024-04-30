@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Carousel from "../Carousel";
 import Section from "../section";
-import { MakiArrow } from "@/icons/Arrow";
+import IconClient from "../IconClient";
 
 export default function TechCamp1() {
     const slides: string[] = [
@@ -30,12 +30,12 @@ export default function TechCamp1() {
                         <Link
                             href="/activities/techcamp1"
                             className="w-full bg-secondary rounded-xl px-8 py-3 flex flex-row items-center justify-center gap-2 font-bold text-white hover:cursor-pointer">
-                            ผลงานน้องๆในค่าย <MakiArrow color="white" className="w-4 h-auto" />
+                            ผลงานน้องๆในค่าย <IconClient icon="maki:arrow" width="16" height="16" className="text-white"/>
                         </Link>
                         <Link
                             href="/activities/techcamp1"
                             className="w-full border-2 border-secondary rounded-xl px-8 py-3 flex flex-row items-center justify-center gap-2 font-bold text-white hover:cursor-pointer">
-                            ค่ายครั้งอื่นๆ <MakiArrow color="white" className="w-4 h-auto" />
+                            ค่ายครั้งอื่นๆ <IconClient icon="maki:arrow" width="16" height="16" className="text-white"/>
                         </Link>
                     </div>
                 </div>

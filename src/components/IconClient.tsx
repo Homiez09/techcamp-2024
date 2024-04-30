@@ -4,13 +4,13 @@ import { Icon } from "@iconify/react";
 
 export default function IconClient({
     icon,
-    width,
-    height,
+    width = "64",
+    height = "64",
     className,
 }: {
     icon: string;
-    width: string;
-    height: string;
+    width?: string;
+    height?: string;
     className?: string;
 }) {
     return (

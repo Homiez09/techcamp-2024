@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import ScrollToSection from './ScrollToSection';
-import { BiArrowUpShort } from '@/icons/Arrow';
+import IconClient from './IconClient';
 
 export default function Footer() {
     return (
@@ -13,7 +13,7 @@ export default function Footer() {
                 </a>
                 <div className="flex flex-col gap-3 sm:flex-row justify-between pl-4">
                     <p className="text-sm text-white">&copy; 2023 KU Tech. All right reserved.</p>
-                    <ScrollToSection to="index" content="Scroll to top" className="underline text-white cursor-pointer" icon={<BiArrowUpShort className="w-4 h-auto" color="white"/>}/>
+                    <ScrollToSection to="index" content="Scroll to top" className="underline text-white cursor-pointer" icon={<IconClient icon="mdi:arrow-up" width="16" height="16" className="text-white"/>}/>
                 </div>
             </div>
         </footer>
