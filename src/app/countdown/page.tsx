@@ -3,12 +3,22 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { ibm700Font } from "@/libs/font";
+import { DatePicker, DatePickerProps } from "antd";
+import dayjs from "dayjs";
 
 export default function Page() {
     const [isStart, setIsStart] = useState<boolean>(false);
-    const [endTime, setEndTime] = useState<Date>();
+    const [endTime, setEndTime] = useState<number>();
 
     const date = new Date();
+    const defaultValue = dayjs(new Date)
+
+    const onChange: DatePickerProps['onChange'] = (_, dateStr) => {
+        const current = dayjs(new Date()) as dayjs.Dayjs;
+        const end = dayjs(_.toDate()) as dayjs.Dayjs;
+        const diff = end.diff(current, 'second') as number;
+        setEndTime(diff);
+    };
 
     const onHandleCountDown = () => {
         const countdown = 3600;
@@ -75,9 +85,18 @@ export default function Page() {
                             <p id="second" className="text-[200px] mb-[-30px]">00</p>
                             <p className="text-3xl">SECONDS</p>
                         </div>
-                    </div> : <div>กรอกเวลา</div>}
+                    </div> : <div>
+                        <DatePicker
+                            defaultValue={defaultValue}
+                            showTime
+                            onChange={onChange}
+                        /></div>}
                 <p className="text-xl">{date.toDateString()}</p>
             </div>
         </div>
     )
 }
+
+const onChange: DatePickerProps['onChange'] = (_, dateStr) => {
+    console.log('onChange:', dateStr);
+};
