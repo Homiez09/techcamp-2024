@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { ibmFont } from "../libs/font";
 import "./globals.css";
-import Head from "next/head";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
