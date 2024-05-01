@@ -12,6 +12,7 @@ export default function Carousel({ slides }: { slides: string[] }) {
         else if (index >= slides.length) setCurrent(0)
         else setCurrent(index);
     }
+
     return (
         <>
             <div className="w-2/3 mx-10 mt-10 bg-red-800 h-[300px] bg-opacity-40 rotate-2 md:w-full">
@@ -23,10 +24,14 @@ export default function Carousel({ slides }: { slides: string[] }) {
                         <IconClient icon="mdi:triangle" width="20" height="20" className="text-secondary w-5 h-5 rotate-[-30deg]" />
                     </div>
                 </div>
+
                 <div className="relative w-full h-[300px] rotate-[-6deg]">
-                    <Image loading='lazy' src={slides[current]} alt="Activity Photo" fill className="object-cover" />
+                    {slides.map((slide, slideIndex) => (
+                        <Image priority key={slideIndex} src={slide} alt="Activity Photo" fill className={`object-cover select-none ${current === slideIndex ? "" : "hidden"}`} />
+                    ))}
                 </div>
-                <div className="flex absolute justify-center w-full select-none">
+
+                <div className="flex absolute justify-center w-full select-none rotate-[-2deg]">
                     {slides.map((slide, slideIndex) => (
                         <div
                             key={slideIndex}
