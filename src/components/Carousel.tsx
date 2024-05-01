@@ -32,7 +32,7 @@ export default function Carousel({ slides }: { slides: string[] }) {
                 </div>
 
                 <div className="flex absolute justify-center w-full select-none rotate-[-2deg]">
-                    {slides.map((slide, slideIndex) => (
+                    {slides.map((_, slideIndex) => (
                         <div
                             key={slideIndex}
                             onClick={() => goToSlide(slideIndex)}
