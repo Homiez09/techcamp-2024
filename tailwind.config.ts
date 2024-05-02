@@ -12,8 +12,8 @@ const config: Config = {
     },
     extend: {
       backgroundImage: {
-        "primary-texture":  "linear-gradient(to bottom, transparent, #06011F)",
-        "secondary-texture":  "linear-gradient(to top, transparent, #06011F), url('/assets/background/loop-pixel-bg.gif')",
+        "primary-texture": "linear-gradient(to bottom, transparent, #06011F)",
+        "secondary-texture": "linear-gradient(to top, transparent, #06011F), url('/assets/background/loop-pixel-bg.gif')",
       },
       colors: {
         primary: "#06011F",
@@ -21,6 +21,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@designbycode/tailwindcss-text-shadow")],
 };
 export default config;
