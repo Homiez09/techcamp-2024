@@ -29,6 +29,11 @@ export default function Page() {
         }
     }
 
+    const setTimer = (s: number) => {
+        setEndTime(s);
+        setIsStart(true);
+    }
+
     useEffect(() => {
         if (isStart) {
             console.log(endTime)
@@ -89,18 +94,9 @@ export default function Page() {
                         </div>
                         <p className="text-sm p-2 space-x-1">
                             ตั้งเวลาด่วน :&nbsp;
-                            <span className="underline cursor-pointer" onClick={() => {
-                                setEndTime(3600/2);
-                                setIsStart(true);
-                            }}>30m</span>
-                            <span className="underline cursor-pointer" onClick={() => {
-                                setEndTime(3600);
-                                setIsStart(true);
-                            }}>1h</span>
-                            <span className="underline cursor-pointer" onClick={() => {
-                                setEndTime(3600*2);
-                                setIsStart(true);
-                            }}>2h</span>
+                            <span className="underline cursor-pointer" onClick={() => setTimer(1800)}>30m</span>
+                            <span className="underline cursor-pointer" onClick={() => setTimer(3600)}>1h</span>
+                            <span className="underline cursor-pointer" onClick={() => setTimer(7200)}>2h</span>
                         </p>
                     </div>
                 }
