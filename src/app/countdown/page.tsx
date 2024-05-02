@@ -2,50 +2,37 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { ibm700Font } from "@/libs/font";
+import { ibm700Font, ibmFont } from "@/libs/font";
 import { DatePicker, DatePickerProps } from "antd";
 import dayjs from "dayjs";
 
 export default function Page() {
     const [isStart, setIsStart] = useState<boolean>(false);
-    const [endTime, setEndTime] = useState<number>();
+    const [endTime, setEndTime] = useState<number>(0);
 
     const date = new Date();
     const defaultValue = dayjs(new Date)
 
     const onChange: DatePickerProps['onChange'] = (_, dateStr) => {
+        if (dateStr === null) return;
         const current = dayjs(new Date()) as dayjs.Dayjs;
-        const end = dayjs(_.toDate()) as dayjs.Dayjs;
+        const end = dayjs(_?.toDate()) as dayjs.Dayjs;
         const diff = end.diff(current, 'second') as number;
         setEndTime(diff);
     };
 
-    const onHandleCountDown = () => {
-        const countdown = 3600;
-        let time = countdown;
-        const interval = setInterval(() => {
-            const hours = Math.floor(time / 3600);
-            const minutes = Math.floor((time % 3600) / 60);
-            const seconds = time % 60;
-            document.getElementById("hour")!.textContent = hours.toString().padStart(2, "0");
-            document.getElementById("minute")!.textContent = minutes.toString().padStart(2, "0");
-            document.getElementById("second")!.textContent = seconds.toString().padStart(2, "0")
-            time--;
-            if (time < 0) {
-                clearInterval(interval);
-                setTimeout(() => {
-                    window.location.href = "/countdown/video";
-                }, 1000);
-            }; 4
-        }, 1000);
-
+    const onButtonSubmit = () => {
+        if (endTime === undefined) return alert("กรุณาตั้งเวลา");
+        else if (endTime <= 0) return alert("คุณดูหลงๆกับอดีตนะ ลองตั้งเวลาให้เป็นอนาคตดูสิ :)");
+        if (endTime) {
+            setIsStart(true);
+        }
     }
 
     useEffect(() => {
-        // countdown 1hr
         if (isStart) {
-            const countdown = 3600;
-            let time = countdown;
+            console.log(endTime)
+            let time = endTime!;
             const interval = setInterval(() => {
                 const hours = Math.floor(time / 3600);
                 const minutes = Math.floor((time % 3600) / 60);
@@ -85,12 +72,38 @@ export default function Page() {
                             <p id="second" className="text-[200px] mb-[-30px]">00</p>
                             <p className="text-3xl">SECONDS</p>
                         </div>
-                    </div> : <div>
-                        <DatePicker
-                            defaultValue={defaultValue}
-                            showTime
-                            onChange={onChange}
-                        /></div>}
+                    </div> :
+                    <div className={`${ibmFont.className}`}>
+                        <div className="flex flex-row items-center gap-3">
+                            <DatePicker
+                                defaultValue={defaultValue}
+                                showTime
+                                onChange={onChange}
+                            />
+                            <div
+                                onClick={onButtonSubmit}
+                                className="bg-[#02B477] rounded-md py-1 px-4 cursor-pointer hover:bg-[#20c997]"
+                            >
+                                เริ่ม
+                            </div>
+                        </div>
+                        <p className="text-sm p-2 space-x-1">
+                            ตั้งเวลาด่วน :&nbsp;
+                            <span className="underline cursor-pointer" onClick={() => {
+                                setEndTime(3600/2);
+                                setIsStart(true);
+                            }}>30m</span>
+                            <span className="underline cursor-pointer" onClick={() => {
+                                setEndTime(3600);
+                                setIsStart(true);
+                            }}>1h</span>
+                            <span className="underline cursor-pointer" onClick={() => {
+                                setEndTime(3600*2);
+                                setIsStart(true);
+                            }}>2h</span>
+                        </p>
+                    </div>
+                }
                 <p className="text-xl">{date.toDateString()}</p>
             </div>
         </div>
