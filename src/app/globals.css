@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.ant-timeline-item-tail {
+    @apply bg-gray-400;
+}
+
+.ant-timeline-item-head {
+    @apply scale-125;
+}
