@@ -6,6 +6,7 @@ import Contact from "@/components/sections/Contact";
 import IconClient from "@/components/IconClient";
 import TimeLine from "@/components/sections/TimeLine";
 import InProcess from "@/components/sections/InProcess";
+import Partners from "@/components/sections/partners";
 
 export default function Page() {
   return (
@@ -28,6 +29,7 @@ export default function Page() {
         <TimeLine />
         <InProcess />
         <TechCamp1 />
+        <Partners />
         <Contact />
       </div>
     </>
