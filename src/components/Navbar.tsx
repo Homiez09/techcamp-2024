@@ -44,6 +44,7 @@ export default function Navbar() {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
             if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                if (section.id === "timeline") section.id = "about";
                 setCurrentSection(section.id);
             }
         });
@@ -71,8 +72,7 @@ export default function Navbar() {
     }, [lastScroll])
 
     return (
-        <div className={`fixed z-20 w-full `}>
-            {currentSection}
+        <div className={`fixed z-20 w-full ${direction === 'down' ? "animate-navbarUp translate-y-[-100%]" : "animate-navbarDown translate-y-0"}`}>
             <div className={`container flex flex-row max-w-5xl items-center rounded-xl w-full py-2 px-5 text-white max-lg:justify-between ${isMenu ? "h-screen bg-opacity-100 bg-primary animate-navbarMobileMenu" : "bg-opacity-5 bg-white mt-2"}`}>
                 <div className={`flex flex-row items-center gap-2 ${isMenu ? "hidden" : ""}`}>
                     <Image priority src="/assets/logo/ku-logo-high-res.png" alt="ku-logo" width={34} height={34} />
@@ -80,7 +80,7 @@ export default function Navbar() {
                 </div>
                 <div className="flex flex-row justify-between items-center w-full lg:px-24 max-lg:hidden">
                     {sectionItems.map((section, index) => (
-                        <ScrollToSection key={index} to={section.to} content={section.content} className={currentSection == section.to ? "text-secondary" : "cursor-pointer hover:text-secondary"} />
+                        <ScrollToSection key={index} to={section.to} content={section.content} className={currentSection === section.to ? "text-secondary" : "cursor-pointer hover:text-secondary"} />
                     ))}
                 </div>
                 <div className="flex flex-row lg:hidden items-center" onClick={() => setIsMenu((isMenu) => !isMenu)}>
