@@ -1,5 +1,3 @@
-'use client'
-
 import Section from "../section";
 import Image from "next/image";
 

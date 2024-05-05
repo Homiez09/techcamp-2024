@@ -5,6 +5,7 @@ import TechCamp1 from "@/components/sections/TechCamp1";
 import Contact from "@/components/sections/Contact";
 import IconClient from "@/components/IconClient";
 import TimeLine from "@/components/sections/TimeLine";
+import InProcess from "@/components/sections/InProcess";
 
 export default function Page() {
   return (
@@ -25,6 +26,7 @@ export default function Page() {
       <div className="min-h-screen bg-secondary-texture bg-center pt-20">
         <About />
         <TimeLine />
+        <InProcess />
         <TechCamp1 />
         <Contact />
       </div>
