@@ -1,0 +1,77 @@
+'use client'
+
+import Image from 'next/image';
+import ScrollToSection from './ScrollToSection';
+import { useEffect, useState } from 'react';
+import IconClient from './IconClient';
+
+export default function Navbar() {
+    const [lastScroll, setLastScroll] = useState(0);
+    const [direction, setDirection] = useState('up');
+
+    // mobile menu
+    const [isMenu, setIsMenu] = useState(false);
+    // ----------------
+    
+    useEffect(() => {
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > lastScroll) {
+                setIsMenu(false);
+                setDirection('down');
+            } else if (currentScroll < lastScroll) {
+                setIsMenu(false);
+                setDirection('up');
+            }
+            console.log(direction)
+            setLastScroll(currentScroll);
+        })
+    }, [])
+
+    const sectionItems = [
+        {
+            to: "about",
+            content: "แนะนำค่าย และ TIMELINE"
+        },
+        {
+            to: "inprocess",
+            content: "ค่ายที่กำลังดำเนินการ"
+        },
+        {
+            to: "techcamp1",
+            content: "ค่ายที่ผ่านมา"
+        },
+        {
+            to: "partners",
+            content: "ผู้สนับสนุน"
+        },
+        {
+            to: "contact",
+            content: "ช่องทางการติดต่อ"
+        }
+    ]
+    return (
+        <div className={`fixed z-20 w-full`}>
+            <div className={`container flex flex-row max-w-5xl items-center rounded-xl w-full py-2 px-5 text-white max-lg:justify-between ${isMenu ? "h-screen bg-opacity-100 bg-primary animate-navbarMobileMenu" : "bg-opacity-5 bg-white mt-2"}`}>
+                <div className={`flex flex-row items-center gap-2 ${isMenu ? "hidden" : ""}`}>
+                    <Image priority src="/assets/logo/ku-logo-high-res.png" alt="ku-logo" width={34} height={34} />
+                    <Image priority src="/assets/logo/KUTechBlack.png" alt="kutech-logo" width={34} height={34} />
+                </div>
+                <div className="flex flex-row justify-between items-center w-full lg:px-24 max-lg:hidden">
+                    {sectionItems.map((section, index) => (
+                        <ScrollToSection key={index} to={section.to} content={section.content} className='cursor-pointer hover:text-secondary'/>
+                    ))}
+                </div>
+                <div className="flex flex-row lg:hidden items-center" onClick={() => setIsMenu((isMenu) => !isMenu)}>
+                    {isMenu ? <IconClient icon="ic:outline-close" width="24" height="24" className="cursor-pointer hover:text-red-500" /> 
+                    : <IconClient icon="charm:menu-hamburger" width="24" height="24" className="cursor-pointer hover:text-red-500" />}
+                </div>
+                {isMenu && <div className="flex flex-col gap-2 items-center w-full lg:hidden">
+                    {sectionItems.map((section, index) => (
+                        <ScrollToSection key={index} to={section.to} content={section.content} className='cursor-pointer hover:text-secondary'/>
+                    ))}
+                </div>}
+            </div>
+        </div>
+    )
+}

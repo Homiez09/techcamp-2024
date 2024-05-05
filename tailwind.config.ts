@@ -21,6 +21,10 @@ const config: Config = {
       },
       animation: {
         fade: 'fadeOut 2s ease-in-out',
+        navbarUp: 'hiddenNavbarUp 0.3s ease-in-out',
+        navbarDown: 'hiddenNavbarDown 0.3s ease-in-out',
+        navbarMobileMenu: 'showMobileMenu 0.3s ease-in-out',
+        navbarMobileMenuHidden: 'hiddenMobileMenu 0.3s ease-in-out'
       },
       keyframes: {
         fadeOut: {
@@ -29,6 +33,42 @@ const config: Config = {
           },
           '100%': {
             opacity: '1',
+          },
+        },
+        hiddenNavbarUp: {
+          '0%': {
+            transform: 'translateY(0)',
+          },
+          '100%': {
+            transform: 'translateY(-100%)',
+          },
+        },
+        hiddenNavbarDown: {
+          '0%': {
+            transform: 'translateY(-100%)',
+          },
+          '100%': {
+            transform: 'translateY(0)',
+          },
+        },
+        showMobileMenu: {
+          '0%': {
+            transform: 'translateY(-100%)',
+          },
+          '100%': {
+            transform: 'translateY(0)',
+          },
+        },
+        hiddenMobileMenu: {
+          '0%': {
+            transform: 'translateY(0)',
+            height: '100vh',
+            background: '#06011F',
+          },
+          '100%': {
+            transform: 'translateY(-40%)',
+            height: '20vh',
+            background: 'transparent'
           },
         },
       }

@@ -3,6 +3,7 @@ import { ibmFont } from "../libs/font";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import AntdStyledComponentsRegistry from "@/components/AntdStyledComponentsRegistry";
+import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,6 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={ibmFont.className}>
         <AntdStyledComponentsRegistry>
+          <Navbar />
           {children}
         </AntdStyledComponentsRegistry>
         <Footer />

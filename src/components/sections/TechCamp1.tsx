@@ -16,7 +16,7 @@ export default function TechCamp1() {
     ]
 
     return (
-        <Section id="about" className="gap-8">
+        <Section id="techcamp1" className="gap-8">
             <div className="container max-w-5xl mx-auto flex flex-col items-center md:flex-row">
                 <div className="w-full p-5 space-y-3">
                     <p className="text-3xl font-bold mb-5">Tech Camp #1 <span className="text-red-500">x</span> สานสายใยวิทย์-คอม 2566</p>

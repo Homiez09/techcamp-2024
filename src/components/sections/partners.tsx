@@ -22,7 +22,7 @@ export default function Partners() {
                 <div className="flex md:flex-row md:flex-wrap flex-col gap-20 justify-center items-center">
                     {partners.map((partner, index) => (
                         <Link key={index} href={partner.href} className="relative h-[150px] w-[150px]">
-                            <Image loading="lazy" src={`/assets/logo/${partner.src}`} alt={partner.alt} fill className="object-contain w-full h-full" />
+                            <Image loading="lazy" src={`/assets/logo/${partner.src}`} alt={partner.alt} sizes="2" fill className="object-contain" />
                         </Link>
                     ))}
                 </div>
