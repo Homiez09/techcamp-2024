@@ -40,12 +40,12 @@ const config: Config = {
             transform: 'translateY(0)',
           },
           '100%': {
-            transform: 'translateY(-100%)',
+            transform: 'translateY(-100px)',
           },
         },
         hiddenNavbarDown: {
           '0%': {
-            transform: 'translateY(-100%)',
+            transform: 'translateY(-100px)',
           },
           '100%': {
             transform: 'translateY(0)',
