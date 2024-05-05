@@ -8,45 +8,43 @@ import dayjs from "dayjs";
 
 export default function Page() {
     const [isStart, setIsStart] = useState<boolean>(false);
-    const [endTime, setEndTime] = useState<number>(0);
+    const [endTime, setEndTime] = useState<dayjs.Dayjs>();
 
     const date = new Date();
     const defaultValue = dayjs(new Date)
 
     const onChange: DatePickerProps['onChange'] = (_, dateStr) => {
         if (dateStr === null) return;
-        const current = dayjs(new Date()) as dayjs.Dayjs;
         const end = dayjs(_?.toDate()) as dayjs.Dayjs;
-        const diff = end.diff(current, 'second') as number;
-        setEndTime(diff);
+        setEndTime(end);
     };
 
     const onButtonSubmit = () => {
         if (endTime === undefined) return alert("กรุณาตั้งเวลา");
-        else if (endTime <= 0) return alert("คุณดูหลงๆกับอดีตนะ ลองตั้งเวลาให้เป็นอนาคตดูสิ :)");
+        else if (endTime.diff(dayjs(new Date()), 'second') < 0) return alert("คุณดูหลงๆกับอดีตนะ ลองตั้งเวลาให้เป็นอนาคตดูสิ :)");
         if (endTime) {
             setIsStart(true);
         }
     }
 
     const setTimer = (s: number) => {
-        setEndTime(s);
+        const current = dayjs(new Date()) as dayjs.Dayjs;
+        const end = current.add(s, 'second') as dayjs.Dayjs;
+        setEndTime(end);
         setIsStart(true);
     }
 
     useEffect(() => {
         if (isStart) {
-            console.log(endTime)
-            let time = endTime!;
             const interval = setInterval(() => {
-                const hours = Math.floor(time / 3600);
-                const minutes = Math.floor((time % 3600) / 60);
-                const seconds = time % 60;
+                const diff = endTime!.diff(dayjs(new Date()), 'second');
+                const hours = Math.floor(diff / 3600);
+                const minutes = Math.floor((diff % 3600) / 60);
+                const seconds = diff % 60;
                 document.getElementById("hour")!.textContent = hours.toString().padStart(2, "0");
                 document.getElementById("minute")!.textContent = minutes.toString().padStart(2, "0");
                 document.getElementById("second")!.textContent = seconds.toString().padStart(2, "0")
-                time--;
-                if (time < 0) {
+                if (endTime!.diff(dayjs(new Date()), 'second') <= 0) {
                     clearInterval(interval);
                     setTimeout(() => {
                         window.location.href = "/countdown/video";
