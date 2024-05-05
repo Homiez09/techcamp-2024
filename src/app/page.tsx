@@ -12,7 +12,7 @@ export default function Page() {
     <>
       <section id="index" className="relative min-h-screen">
         <video src="/assets/background/loop-bg-small.mp4" autoPlay muted loop playsInline className="min-h-screen object-cover w-full"/>
-        <div className="absolute inset-0 flex flex-col justify-center gap-5 items-center text-white bg-primary-texture">
+        <div className="absolute inset-0 flex flex-col justify-center gap-5 items-center text-white bg-primary-texture animate-fade">
           <Image src="/assets/logo/techcamp2-logowhite.png" priority alt="techcamp2-logo" className="w-auto h-auto m-[-20px] md:m-[-120px]" width={600} height={600} />
           <ScrollToSection
               className="bg-secondary hover:bg-red-700 rounded-xl px-8 py-3 flex flex-row items-center justify-center gap-2 font-bold text-white hover:cursor-pointer"

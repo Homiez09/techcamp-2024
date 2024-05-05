@@ -19,6 +19,19 @@ const config: Config = {
         primary: "#06011F",
         secondary: "#EC1C24",
       },
+      animation: {
+        fade: 'fadeOut 2s ease-in-out',
+      },
+      keyframes: {
+        fadeOut: {
+          '0%': {
+            opacity: '0',
+          },
+          '100%': {
+            opacity: '1',
+          },
+        },
+      }
     },
   },
   plugins: [require("@designbycode/tailwindcss-text-shadow")],
