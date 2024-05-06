@@ -9,6 +9,7 @@ import dayjs from "dayjs";
 export default function Page() {
     const [isStart, setIsStart] = useState<boolean>(false);
     const [endTime, setEndTime] = useState<dayjs.Dayjs>();
+    const [isEnd, setIsEnd] = useState<boolean>(false);
 
     const date = new Date();
     const defaultValue = dayjs(new Date)
@@ -47,7 +48,8 @@ export default function Page() {
                 if (endTime!.diff(dayjs(new Date()), 'second') <= 0) {
                     clearInterval(interval);
                     setTimeout(() => {
-                        window.location.href = "/countdown/video";
+                        // window.location.href = "/countdown/video";
+                        setIsEnd(true);
                     }, 1000);
                 };
             }, 1000);
@@ -58,25 +60,30 @@ export default function Page() {
         <div className={`h-screen w-full text-white ${ibm700Font.className} font-bold`}>
             <video src="/assets/background/loop-bg-small.mp4" autoPlay muted loop playsInline className="object-cover h-screen w-full" />
             <div className="absolute inset-0 flex flex-col w-full h-screen items-center justify-center space-y-28">
-                <Image src="/assets/logo/tech-x-school.png" priority alt="techcamp2-logo" className="w-auto h-auto m-[-20px] md:m-[-120px]" width={640} height={320} />
+                <Image src="/assets/logo/tech-x-school.png" onClick={() => window.location.href = "/countdown/video"} priority alt="techcamp2-logo" className="w-auto h-auto m-[-20px] md:m-[-120px]" width={640} height={320} />
                 {isStart ?
-                    <div className="w-full font-[1200] text-shadow-md flex flex-row justify-center items-start gap-24">
-                        <div className="flex flex-col items-center">
-                            <p id="hour" className="text-[200px] mb-[-30px]">00</p>
-                            <p className="text-3xl">HOURS</p>
+                    isEnd ?
+                        <div className="relative animate-pulse w-[150px] h-[150px] flex flex-col items-center hover:border-secondary">
+                            <button className="border-2 py-3 px-5 rounded-lg hover:border-secondary">play</button>
+                            {/* <Image src="/assets/fingerprint/1.png" priority fill alt="fingerprint" className="w-auto h-auto" /> */}
                         </div>
-                        <p className="text-[200px]">:</p>
-                        <div className="flex flex-col items-center">
-                            <p id="minute" className="text-[200px] mb-[-30px]">00</p>
-                            <p className="text-3xl">MINUTES</p>
+                        : <div className="w-full font-[1200] text-shadow-md flex flex-row justify-center items-start gap-24">
+                            <div className="flex flex-col items-center">
+                                <p id="hour" className="text-[200px] mb-[-30px]">00</p>
+                                <p className="text-3xl">HOURS</p>
+                            </div>
+                            <p className="text-[200px]">:</p>
+                            <div className="flex flex-col items-center">
+                                <p id="minute" className="text-[200px] mb-[-30px]">00</p>
+                                <p className="text-3xl">MINUTES</p>
+                            </div>
+                            <p className="text-[200px]">:</p>
+                            <div className="flex flex-col items-center">
+                                <p id="second" className="text-[200px] mb-[-30px]">00</p>
+                                <p className="text-3xl">SECONDS</p>
+                            </div>
                         </div>
-                        <p className="text-[200px]">:</p>
-                        <div className="flex flex-col items-center">
-                            <p id="second" className="text-[200px] mb-[-30px]">00</p>
-                            <p className="text-3xl">SECONDS</p>
-                        </div>
-                    </div> :
-                    <div className={`${ibmFont.className}`}>
+                    : <div className={`${ibmFont.className}`}>
                         <div className="flex flex-row items-center gap-3">
                             <DatePicker
                                 defaultValue={defaultValue}
@@ -100,6 +107,6 @@ export default function Page() {
                 }
                 <p className="text-xl">{date.toDateString()}</p>
             </div>
-        </div>
+        </div >
     )
 }
