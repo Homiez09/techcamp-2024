@@ -1,16 +1,17 @@
 import Image from "next/image";
-import About from "@/components/sections/About";
+import About from "@/components/Sections/About";
 import ScrollToSection from "@/components/ScrollToSection";
-import TechCamp1 from "@/components/sections/TechCamp1";
-import Contact from "@/components/sections/Contact";
+import TechCamp1 from "@/components/Sections/TechCamp1";
+import Contact from "@/components/Sections/Contact";
 import IconClient from "@/components/IconClient";
-import TimeLine from "@/components/sections/TimeLine";
-import InProcess from "@/components/sections/InProcess";
-import Partners from "@/components/sections/partners";
+import TimeLine from "@/components/Sections/TimeLine";
+import InProcess from "@/components/Sections/InProcess";
+import Partners from "@/components/Sections/partners";
+import MainLayout from "@/components/Layouts/MainLayout";
 
 export default function Page() {
   return (
-    <>
+    <MainLayout>
       <section id="index" className="relative min-h-screen">
         <video src="/assets/background/loop-bg-small.mp4" autoPlay muted loop playsInline className="min-h-screen object-cover w-full"/>
         <div className="absolute inset-0 flex flex-col justify-center gap-5 items-center text-white bg-primary-texture animate-fade">
@@ -32,6 +33,6 @@ export default function Page() {
         <Partners />
         <Contact />
       </div>
-    </>
+    </MainLayout>
   )
 }

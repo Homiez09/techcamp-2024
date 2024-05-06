@@ -14,7 +14,7 @@ export default function Page() {
 
     })
     return (
-        <div className="absolute z-10 min-h-screen w-full bg-white">
+        <div className="min-h-screen w-full bg-white">
             <video id="intro" src={`/assets/video/${video[isEnd ? 1 : 0]}`} loop={isEnd} autoPlay playsInline className="min-h-screen object-cover w-full" />
         </div>
     )
