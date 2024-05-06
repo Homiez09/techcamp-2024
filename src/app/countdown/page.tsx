@@ -28,6 +28,10 @@ export default function Page() {
         }
     }
 
+    const onButtonPlay = () => {
+        window.location.href = "/countdown/video";
+    }
+
     const setTimer = (s: number) => {
         const current = dayjs(new Date()) as dayjs.Dayjs;
         const end = current.add(s, 'second') as dayjs.Dayjs;
@@ -64,7 +68,7 @@ export default function Page() {
                 {isStart ?
                     isEnd ?
                         <div className="relative animate-pulse w-[150px] h-[150px] flex flex-col items-center hover:border-secondary">
-                            <button className="border-2 py-3 px-5 rounded-lg hover:border-secondary">play</button>
+                            <button className="border-2 py-3 px-5 rounded-lg hover:border-secondary" onClick={onButtonPlay}>play</button>
                             {/* <Image src="/assets/fingerprint/1.png" priority fill alt="fingerprint" className="w-auto h-auto" /> */}
                         </div>
                         : <div className="w-full font-[1200] text-shadow-md flex flex-row justify-center items-start gap-24">
