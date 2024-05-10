@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ibm700Font, ibmFont } from "@/libs/font";
 import { DatePicker, DatePickerProps } from "antd";
 import dayjs from "dayjs";
+import IconClient from "@/components/IconClient";
 
 export default function Page() {
     const [isStart, setIsStart] = useState<boolean>(false);
@@ -26,6 +27,10 @@ export default function Page() {
         if (endTime) {
             setIsStart(true);
         }
+    }
+
+    const onButtonPlay = () => {
+        window.location.href = "/countdown/video";
     }
 
     const setTimer = (s: number) => {
@@ -63,10 +68,8 @@ export default function Page() {
                 <Image src="/assets/logo/tech-x-school.png" onClick={() => window.location.href = "/countdown/video"} priority alt="techcamp2-logo" className="w-auto h-auto m-[-20px] md:m-[-120px]" width={640} height={320} />
                 {isStart ?
                     isEnd ?
-                        <div className="relative animate-pulse w-[150px] h-[150px] flex flex-col items-center hover:border-secondary">
-                            <button className="border-2 py-3 px-5 rounded-lg hover:border-secondary">play</button>
-                            {/* <Image src="/assets/fingerprint/1.png" priority fill alt="fingerprint" className="w-auto h-auto" /> */}
-                        </div>
+                            <IconClient icon="mingcute:play-line" onClick={onButtonPlay} className="cursor-pointer hover:text-secondary" />
+                        
                         : <div className="w-full font-[1200] text-shadow-md flex flex-row justify-center items-start gap-24">
                             <div className="flex flex-col items-center">
                                 <p id="hour" className="text-[200px] mb-[-30px]">00</p>
