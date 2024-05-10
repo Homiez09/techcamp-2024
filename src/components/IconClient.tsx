@@ -7,13 +7,15 @@ export default function IconClient({
     width = "64",
     height = "64",
     className,
+    onClick,
 }: {
     icon: string;
     width?: string;
     height?: string;
     className?: string;
+    onClick?: () => void;
 }) {
     return (
-        <Icon icon={icon} width={width} height={height} className={className} />
+        <Icon icon={icon} width={width} height={height} className={className} onClick={onClick}/>
     )
 }
