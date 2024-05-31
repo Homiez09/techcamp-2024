@@ -54,7 +54,7 @@ export default function Navbar() {
     useEffect(() => {
         const handleScroll = () => {
             const currentScroll = window.pageYOffset;
-            if (currentScroll > lastScroll) {
+            if (currentScroll > lastScroll && currentScroll > 100) {
                 setIsMenu(false);
                 setDirection('down');
             } else {

@@ -28,12 +28,12 @@ export default function TechCamp1() {
                     </p>
                     <div className="flex flex-col justify-center gap-2 lg:flex-row">
                         <Link
-                            href="/activities/techcamp1"
+                            href="https://camp.tech.nisit.ku.ac.th/"
                             className="w-full bg-secondary hover:bg-red-700 rounded-xl py-3 flex flex-row items-center justify-center gap-2 font-bold text-white hover:cursor-pointer">
                             ผลงานน้องๆในค่าย <IconClient icon="maki:arrow" width="16" height="16" className="text-white"/>
                         </Link>
                         <Link
-                            href="/activities/techcamp1"
+                            href="https://camp.tech.nisit.ku.ac.th/"
                             className="w-full border-2 border-secondary hover:border-white rounded-xl py-3 flex flex-row items-center justify-center gap-2 font-bold text-white hover:cursor-pointer">
                             ค่ายครั้งอื่นๆ <IconClient icon="maki:arrow" width="16" height="16" className="text-white"/>
                         </Link>
