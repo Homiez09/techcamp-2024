@@ -1,11 +1,9 @@
 import Image from "next/image";
 import About from "@/components/Sections/About";
 import ScrollToSection from "@/components/ScrollToSection";
-import TechCamp1 from "@/components/Sections/TechCamp1";
 import Contact from "@/components/Sections/Contact";
 import IconClient from "@/components/IconClient";
 import TimeLine from "@/components/Sections/TimeLine";
-import InProcess from "@/components/Sections/InProcess";
 import Partners from "@/components/Sections/partners";
 import MainLayout from "@/components/Layouts/MainLayout";
 
@@ -28,8 +26,6 @@ export default function Page() {
       <div className="min-h-screen bg-secondary-texture bg-center pt-20">
         <About />
         <TimeLine />
-        <InProcess />
-        <TechCamp1 />
         <Partners />
         <Contact />
       </div>

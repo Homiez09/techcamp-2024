@@ -148,7 +148,7 @@ interface TimeLineChildProps {
 }
 
 const TimeLineChild: NextPage<TimeLineChildProps> = ({ item, openModal }) => {
-    const [onExpand, setOnExpand] = useState(false);
+    const [onExpand, setOnExpand] = useState(true);
 
     let tagColor = '';
 

@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { ibmFont } from "../libs/font";
 import "./globals.css";
-import Footer from "@/components/Footer";
 import AntdStyledComponentsRegistry from "@/components/AntdStyledComponentsRegistry";
-import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: "TechCamp #2 | 2024",

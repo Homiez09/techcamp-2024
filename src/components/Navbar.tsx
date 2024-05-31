@@ -4,6 +4,7 @@ import Image from 'next/image';
 import ScrollToSection from './ScrollToSection';
 import { useEffect, useState } from 'react';
 import IconClient from './IconClient';
+import Link from 'next/link';
 
 const sectionItems = [
     {
@@ -11,11 +12,7 @@ const sectionItems = [
         content: "แนะนำค่าย และ TIMELINE"
     },
     {
-        to: "inprocess",
-        content: "ค่ายที่กำลังดำเนินการ"
-    },
-    {
-        to: "techcamp1",
+        to: "/techcamp",
         content: "ค่ายที่ผ่านมา"
     },
     {
@@ -80,6 +77,7 @@ export default function Navbar() {
                 </div>
                 <div className="flex flex-row justify-between items-center w-full lg:px-24 max-lg:hidden">
                     {sectionItems.map((section, index) => (
+                        section.to.startsWith("/") ? <Link key={index} href={section.to}>{section.content}</Link> :
                         <ScrollToSection key={index} to={section.to} content={section.content} className={currentSection === section.to ? "text-secondary" : "cursor-pointer hover:text-secondary"} />
                     ))}
                 </div>
