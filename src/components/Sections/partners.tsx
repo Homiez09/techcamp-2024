@@ -15,17 +15,17 @@ export default function Partners() {
             href: "#"
         },
         {
-            src: "sponsors/kohkae logo.jpg",
+            src: "sponsors/Kohkae.png",
             alt: "kohkae",
             href: "#"
         },
         {
-            src: "sponsors/lactasoy logo.jpg",
+            src: "sponsors/Lactasoy.png",
             alt: "Lactasoy",
             href: "#"
         },
         {
-            src: "sponsors/major logo.png",
+            src: "sponsors/MajorCineplex.png",
             alt: "Major Cineplex",
             href: "#"
         },
