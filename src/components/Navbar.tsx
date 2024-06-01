@@ -5,6 +5,7 @@ import ScrollToSection from './ScrollToSection';
 import { useEffect, useState } from 'react';
 import IconClient from './IconClient';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const sectionItems = [
     {
@@ -30,6 +31,8 @@ const sectionItems = [
 ]
 
 export default function Navbar() {
+    const router = useRouter();
+
     const [lastScroll, setLastScroll] = useState<number>(0);
     const [direction, setDirection] = useState<string>('up');
     const [currentSection, setCurrentSection] = useState<string>('index');
@@ -81,7 +84,7 @@ export default function Navbar() {
                 </div>
                 <div className="flex flex-row justify-between items-center w-full lg:px-24 max-lg:hidden">
                     {sectionItems.map((section, index) => (
-                        section.to.startsWith("/") ? <Link key={index} href={section.to}>{section.content}</Link> :
+                        section.to.startsWith("/") || (section.to === 'about') ? <Link key={index} href={section.to === 'about' ? '/' : section.to}>{section.content}</Link> :
                         <ScrollToSection key={index} to={section.to} content={section.content} className={currentSection === section.to ? "text-secondary" : "cursor-pointer hover:text-secondary"} />
                     ))}
                 </div>
