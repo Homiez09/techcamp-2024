@@ -18,8 +18,8 @@ const config: Config = {
       colors: {
         primary: "#06011F",
         secondary: "#EC1C24",
-        primaryBlue : '#1D3048',
-        secondaryBlue : '#364A62',
+        primaryBlue : '#192A3F',
+        secondaryBlue : '#121E2D',
 
       },
       animation: {
