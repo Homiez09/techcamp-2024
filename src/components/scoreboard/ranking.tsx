@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { PiLessThanBold } from "react-icons/pi";
+
 import Link from 'next/link';
 
 type Props = {}
@@ -17,18 +19,22 @@ const teams = [
 
 export default function Ranking({}: Props) {
   return (
-    <section className="min-h-screen text-white pt-[15vh]">
+    <section className="min-h-screen text-white pt-[15vh] pb-[10vh]">
         <div className="container mx-auto px-4">
             {/* Header */}
             <div className="mb-6">
-                <nav className="text-base text-gray-400">
-                <Link href="/" className="hover:underline ">Tech camp</Link> / <span className='text-sm text-gray-300'>Leaderboard</span>
+                <nav className="flex flex-row text-sm text-gray-200 items-center gap-x-[0.5vw]" >
+                    {/* <PiLessThanBold className='text-xs font-blod'/> */}
+                    <Link href="/" className="hover:underline ">Tech camp</Link>
+                    <p>/</p>
+                    <span className='text-xs text-gray-300'>Leaderboard</span>
                 </nav>
-                <h1 className="text-3xl font-bold mt-2">Leaderboard</h1>
             </div>
-
             {/* Leaderboard Table */}
+            <h1 className="text-3xl font-bold mt-[3vh]">Leaderboard</h1>
+
             <div className="bg-secondaryBlue p-4 rounded-xl shadow-xl">
+                
                 <div className="overflow-x-auto">
                 <table className="min-w-full text-center text-white rounded-xl">
                     <thead>
