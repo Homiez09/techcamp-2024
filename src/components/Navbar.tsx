@@ -20,11 +20,11 @@ const sectionItems = [
         content: "ผู้สนับสนุน"
     },
     {
-        to: "/contact",
+        to: "contact",
         content: "ช่องทางการติดต่อ"
     },
     {
-        to : 'scoreboard',
+        to : '/scoreboard',
         content : 'คะแนนทีม'
     }, 
 ]
