@@ -20,9 +20,13 @@ const sectionItems = [
         content: "ผู้สนับสนุน"
     },
     {
-        to: "contact",
+        to: "/contact",
         content: "ช่องทางการติดต่อ"
-    }
+    },
+    {
+        to : 'scoreboard',
+        content : 'คะแนนทีม'
+    }, 
 ]
 
 export default function Navbar() {
@@ -44,7 +48,7 @@ export default function Navbar() {
                 if (section.id === "timeline") section.id = "about";
                 setCurrentSection(section.id);
             }
-        });
+        })
         console.log(currentSection)
     }, [lastScroll])
 
