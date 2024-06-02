@@ -25,9 +25,9 @@ const sectionItems = [
         content: "ช่องทางการติดต่อ"
     },
     {
-        to : 'scoreboard',
-        content : 'คะแนนทีม'
-    }, 
+        to: 'scoreboard',
+        content: 'คะแนนทีม'
+    },
 ]
 
 export default function Navbar() {
@@ -83,7 +83,7 @@ export default function Navbar() {
                 <div className="flex flex-row justify-between items-center w-full lg:px-24 max-lg:hidden">
                     {sectionItems.map((section, index) => (
                         section.to.startsWith("/") ? <Link key={index} href={section.to}>{section.content}</Link> :
-                        <ScrollToSection key={index} to={section.to} content={section.content} className={currentSection === section.to ? "text-secondary" : "cursor-pointer hover:text-secondary"} />
+                            <ScrollToSection key={index} to={section.to} content={section.content} className={currentSection === section.to ? "text-secondary" : "cursor-pointer hover:text-secondary"} />
                     ))}
                 </div>
                 <div className="flex flex-row lg:hidden items-center" onClick={() => setIsMenu((isMenu) => !isMenu)}>
@@ -92,8 +92,8 @@ export default function Navbar() {
                 </div>
                 {isMenu && <div className="flex flex-col gap-2 items-center w-full lg:hidden">
                     {sectionItems.map((section, index) => (
-                        console.log(currentSection, section.to),
-                        <ScrollToSection key={index} to={section.to} content={section.content} className={currentSection === section.to ? "text-secondary" : "cursor-pointer hover:text-secondary"} />
+                        section.to.startsWith("/") ? <Link key={index} href={section.to}>{section.content}</Link> :
+                            <ScrollToSection key={index} to={section.to} content={section.content} className={currentSection === section.to ? "text-secondary" : "cursor-pointer hover:text-secondary"} />
                     ))}
                 </div>}
             </div>
