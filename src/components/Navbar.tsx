@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import IconClient from './IconClient';
 import Link from 'next/link';
 
+// "/" คือ ไปหน้าใหม่ ในขณะที่ ไม่ใช่ "/" คือ ไปยัง section ในหน้าเดิม
 const sectionItems = [
     {
         to: "about",
@@ -20,7 +21,7 @@ const sectionItems = [
         content: "ผู้สนับสนุน"
     },
     {
-        to: "/contact",
+        to: "contact",
         content: "ช่องทางการติดต่อ"
     },
     {
