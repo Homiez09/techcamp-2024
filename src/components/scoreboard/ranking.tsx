@@ -3,8 +3,10 @@ import React from 'react'
 
 import Link from 'next/link'
 
+import Image from 'next/image';
 import { FaGreaterThan } from "react-icons/fa6";
 import { MdExpandMore } from "react-icons/md";
+
 
 type Props = {}
 
@@ -86,10 +88,16 @@ export default function Ranking({}: Props) {
                         </span>
                     </li>
                     {teams.map((team, index) => (
-                        <li key={team.teamID} className={`flex flex-row items-center text-gray-200 justify-between py-[0.5vh]  ${index % 2 === 0 ? 'bg-primaryBlue' : 'bg-primaryBlue bg-opacity-60 hover:bg-opacity-90'} hover:bg-gray-700 rounded-xl`}>
-                            <span className='text-left w-full '>
-                                <div className='pl-[2vw] '>
-                                    <p className='text-sm  bg-secondaryBlue bg-opacity-60 text-white w-fit px-[0.5vw] py-[0.5vh] rounded-full '>{index+1}</p>
+                        <li key={team.teamID} className={`flex flex-row items-center text-gray-200 justify-between py-[0.5vh]  ${index % 2 === 0 ? 'bg-primaryBlue' : 'bg-primaryBlue bg-opacity-60 hover:bg-opacity-90'} hover:bg-gray-700 rounded-xl text-sm md:text-base lg:text-lg`}>
+                            <span className='text-left w-full'>
+                                <div className='pl-[0.5vw]'>
+                                    {
+                                        index < 3 ? <span>
+                                            <Image src={`/assets/medal/medal${index+1}.png`} alt='medal' className='' width={50} height={50}/> 
+                                        </span>
+                                            : 
+                                        <p className='text-center text-sm  bg-secondaryBlue bg-opacity-60 text-white px-[0.75vw] py-[0.5vh] rounded-full w-[50px]'>{index+1}</p>
+                                    }
                                 </div>
                             </span>
                             <span className='text-left w-full'>
