@@ -34,7 +34,7 @@ const teams = [
 ]
   
 
-export default function Ranking({}: Props) {
+export default function Scoreboard({}: Props) {
   return (
     <section className="min-h-screen text-white pt-[15vh] pb-[10vh]">
         <div className="container mx-auto px-4">
@@ -43,18 +43,18 @@ export default function Ranking({}: Props) {
                 <nav className="flex flex-row text-sm text-gray-200 items-center gap-x-[0.5vw]" >
                     <Link href="/" className="hover:underline ">Tech camp</Link>
                     <FaGreaterThan className='text-xs'/>
-                    <span className='text-xs text-gray-300'>Leaderboard</span>
+                    <span className='text-xs text-gray-300'>Scoreboard</span>
                 </nav>
             </div>
             {/* Leaderboard Table */}
-            <h1 className="text-3xl font-bold my-[3vh]">Leaderboard</h1>
+            <h1 className="text-3xl font-bold my-[3vh]">Scoreboard</h1>
 
             <div className="bg-secondaryBlue p-4 rounded-xl shadow-xl">
                 <ul className='flex flex-col px-[1vw] rounded-xl gap-y-[1vh]'>
                     <li className='flex flex-row justify-between pr-[5vw] items-center my-[1vh]'>
                         <span className='text-left w-full pl-[2vw] text-xl font-semibold text-white'>
                             <h1>
-                                Ranking
+                                Positions
                             </h1>
                         </span>
                         <span className='text-right w-full text-base font-semibold text-gray-100'>
