@@ -11,7 +11,7 @@ export default function Page() {
   return (
     <MainLayout>
       <section id="index" className="relative min-h-screen">
-        <video src="/assets/background/loop-bg-small.mp4" autoPlay muted loop playsInline className="min-h-screen object-cover w-full"/>
+        <video src="/assets/videos/background/loop-bg-small.mp4" autoPlay muted loop playsInline className="min-h-screen object-cover w-full"/>
         <div className="absolute inset-0 flex flex-col justify-center gap-5 items-center text-white bg-primary-texture animate-fade">
           <Image src="/assets/logo/techcamp2-logowhite.png" priority alt="techcamp2-logo" className="w-auto h-auto m-[-20px] md:m-[-120px]" width={600} height={600} />
           <ScrollToSection

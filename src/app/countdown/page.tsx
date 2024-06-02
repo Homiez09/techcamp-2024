@@ -63,7 +63,7 @@ export default function Page() {
 
     return (
         <div className={`h-screen w-full text-white ${ibm700Font.className} font-bold`}>
-            <video src="/assets/background/loop-bg-small.mp4" autoPlay muted loop playsInline className="object-cover h-screen w-full" />
+            <video src="/assets/videos/background/loop-bg-small.mp4" autoPlay muted loop playsInline className="object-cover h-screen w-full" />
             <div className="absolute inset-0 flex flex-col w-full h-screen items-center justify-center space-y-28">
                 <Image src="/assets/logo/tech-x-school.png" onClick={() => window.location.href = "/countdown/video"} priority alt="techcamp2-logo" className="w-auto h-auto m-[-20px] md:m-[-120px]" width={640} height={320} />
                 {isStart ?
