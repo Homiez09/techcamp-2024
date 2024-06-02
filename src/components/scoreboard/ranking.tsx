@@ -51,13 +51,13 @@ export default function Ranking({}: Props) {
 
             <div className="bg-secondaryBlue p-4 rounded-xl shadow-xl">
                 <ul className='flex flex-col px-[1vw] rounded-xl gap-y-[1vh]'>
-                    <li className='flex flex-row justify-between pr-[5vw]'>
-                        <span className='text-left w-full pl-[2vw] text-xl font-semibold '>
+                    <li className='flex flex-row justify-between pr-[5vw] items-center my-[1vh]'>
+                        <span className='text-left w-full pl-[2vw] text-xl font-semibold text-white'>
                             <h1>
                                 Ranking
                             </h1>
                         </span>
-                        <span className='text-right w-full text-lg font-semibold '>
+                        <span className='text-right w-full text-base font-semibold text-gray-100'>
                             <h1>
                                 Score
                             </h1>
