@@ -31,7 +31,7 @@ const teams = [
     { rank: 18, teamID: 'TC2-018', teamName: 'Team Sigma', totalScore: 35, percentageScore: '15%' },
     { rank: 19, teamID: 'TC2-019', teamName: 'Team Tau', totalScore: 25, percentageScore: '10%' },
     { rank: 20, teamID: 'TC2-020', teamName: 'Team Upsilon', totalScore: 15, percentageScore: '5%' }
-  ];
+]
   
 
 export default function Ranking({}: Props) {
@@ -50,68 +50,48 @@ export default function Ranking({}: Props) {
             <h1 className="text-3xl font-bold my-[3vh]">Leaderboard</h1>
 
             <div className="bg-secondaryBlue p-4 rounded-xl shadow-xl">
-                <div className="">
-                {/* <table className="min-w-full text-center text-white rounded-xl">
-                    <thead>
-                        <tr className="bg-primaryBlue opacity-70 ">
-                            <th className="px-4 py-2">Rank</th>
-                            <th className="px-4 py-2">Team Name</th>
-                            <th className="px-4 py-2">Total Score</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {teams.map((team, index) => (
-                            <tr key={team.teamID} className={`${index % 2 === 0 ? 'bg-primaryBlue' : 'bg-primaryBlue bg-opacity-60'}`}>
-                                <td className="border px-4 py-2">{team.rank}</td>
-                                <td className="border px-4 py-2">{team.teamName}</td>
-                                <td className="border px-4 py-2">{team.totalScore}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table> */}
                 <ul className='flex flex-col px-[1vw] rounded-xl gap-y-[1vh]'>
-                    <li className='flex flex-row justify-between'>
-                        <span className='text-left w-full'>
+                    <li className='flex flex-row justify-between pr-[5vw]'>
+                        <span className='text-left w-full pl-[2vw] text-xl font-semibold '>
                             <h1>
-                                Rank
+                                Ranking
                             </h1>
                         </span>
-                        <span className='text-left w-full'>
-                            <h1>
-                                Name
-                            </h1>
-                        </span>
-                        <span className='text-left w-full'>
+                        <span className='text-right w-full text-lg font-semibold '>
                             <h1>
                                 Score
                             </h1>
                         </span>
                     </li>
                     {teams.map((team, index) => (
-                        <li key={team.teamID} className={`flex flex-row items-center text-gray-200 justify-between py-[0.5vh]  ${index % 2 === 0 ? 'bg-primaryBlue' : 'bg-primaryBlue bg-opacity-60 hover:bg-opacity-90'} hover:bg-gray-700 rounded-xl text-sm md:text-base lg:text-lg`}>
-                            <span className='text-left w-full'>
+                        <li key={team.teamID} className={`flex flex-row items-center text-gray-200 justify-between py-[0.5vh]  ${index % 2 === 0 ? 'bg-primaryBlue' : 'bg-primaryBlue bg-opacity-60 hover:bg-opacity-90'} hover:bg-gray-700 rounded-xl text-sm md:text-base lg:text-lg transition-all duration-[1000]`}>
+                            <span className='text-left '>
                                 <div className='pl-[0.5vw]'>
                                     {
-                                        index < 3 ? <span>
-                                            <Image src={`/assets/medal/medal${index+1}.png`} alt='medal' className='' width={50} height={50}/> 
-                                        </span>
-                                            : 
-                                        <p className='text-center text-sm  bg-secondaryBlue bg-opacity-60 text-white px-[0.75vw] py-[0.5vh] rounded-full w-[50px]'>{index+1}</p>
+                                        index < 3 ? (
+                                            <span className=''>
+                                                <Image src={`/assets/medal/medal${index+1}.png`} className='min-w-[50px] max-w-[50px]' width={150} height={50} alt='KU Logo'/>
+                                            </span>
+                                        ) : 
+                                        <p className='text-center text-sm bg-secondaryBlue bg-opacity-60 text-white px-[0.75vw] py-[0.5vh] rounded-full w-[50px] cursor-default'>{index+1}</p>
+                                      
                                     }
                                 </div>
                             </span>
                             <span className='text-left w-full'>
-                                <h1 className='pl-[1.5vw]'>
-                                    {team.teamName}
-                                </h1>
+                                <span className='flex flex-row items-center pl-[1.5vw] gap-x-[1vw]'>
+                                    <h1>
+                                       {team.teamName} 
+                                    </h1>                               
+                                </span>
                             </span>
-                            <span className='text-left w-full'>
-                                <h1 className='pl-[3vw]'>
-                                    {team.totalScore}
-                                </h1>
+                            <span className='w-full pr-[1.5vw] flex justify-end'>
+                                    <p className='text-center text-sm  hover:bg-secondaryBlue hover:bg-opacity-50 text-white px-[0.75vw] py-[0.5vh] rounded-full w-[50px] cursor-default'>
+                                        {team.totalScore}
+                                    </p>                                    
                             </span>
                             <span className=''>
-                                <span className='pr-[2vw]'>
+                                <span className='pr-[1vw] items-center'>
                                     <button className='hover:bg-secondaryBlue rounded-full px-[0.5vw] py-[0.5vh] hover:bg-opacity-50 text-xl'>
                                         <MdExpandMore/>
                                     </button>
@@ -120,7 +100,6 @@ export default function Ranking({}: Props) {
                         </li>
                     ))}
                 </ul>
-                </div>
             </div>
         </div>
   </section>
