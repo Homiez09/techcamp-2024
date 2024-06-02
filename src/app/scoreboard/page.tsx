@@ -1,7 +1,7 @@
 import React from 'react'
 
 import MainLayout from '@/components/Layouts/MainLayout'
-import Scoreboard from '@/components/scoreboard/ranking'
+import Scoreboard from '@/components/scoreboard/scoreboard'
 type Props = {}
 
 export default function page({}: Props) {
