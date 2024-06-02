@@ -6,6 +6,7 @@ import Link from 'next/link'
 import Image from 'next/image';
 import { FaGreaterThan } from "react-icons/fa6";
 import { MdExpandMore } from "react-icons/md";
+import { MdExpandLess } from "react-icons/md";
 
 
 type Props = {}
@@ -70,49 +71,73 @@ export default function Scoreboard({}: Props) {
                             </span>
                         </li>
                         {teams.map((team, index) => (
-                            <li
-                                key={team.teamID}
-                                className={`flex flex-row items-center text-gray-200 justify-between py-[0.5vh]  ${index % 2 === 0 ? 'bg-primaryBlue' : 'bg-primaryBlue bg-opacity-60 hover:bg-opacity-90'} hover:bg-gray-700 rounded-xl text-sm md:text-base lg:text-lg transition-all duration-[1000] cursor-pointer`}
-                            >
-                                <span className='text-left '>
-                                    <div className='pl-[0.5vw]'>
-                                        {
-                                            index < 3 ? (
-                                                <span className=''>
-                                                    <Image src={`/assets/medal/medal${index+1}.png`} className='min-w-[50px] max-w-[50px]' width={150} height={50} alt='KU Logo'/>
-                                                </span>
-                                            ) : 
-                                            <p className='text-center text-sm bg-secondaryBlue bg-opacity-60 text-white px-[0.75vw] py-[0.5vh] rounded-full w-[50px] cursor-default'>{index+1}</p>
-                                        
-                                        }
-                                    </div>
-                                </span>
-                                <span className='text-left w-full'>
-                                    <span className='flex flex-row items-center pl-[1.5vw] gap-x-[1vw]'>
-                                        <h1>
-                                        {team.teamName} 
-                                        </h1>                               
-                                    </span>
-                                </span>
-                                <span className='w-full flex justify-end'>
-                                        <p className='text-center text-sm  hover:bg-secondaryBlue hover:bg-opacity-50 text-white px-[0.75vw] py-[0.5vh] rounded-full w-[50px] cursor-default'>
-                                            {team.totalScore}
-                                        </p>                                    
-                                </span>
-                                <span className='flex justify-center items-center text-center pr-[1vw]'>
-                                    <button
-                                        className='hover:bg-secondaryBlue rounded-full p-[0.3rem] hover:bg-opacity-50 text-xl text-center'
-                                        onClick={(e)=>{
-                                            e.preventDefault()
+                            <>
+                                <li
+                                    key={team.teamID}
+                                    className={`flex ${selectedTeam[index] ? 'flex-col' : 'flex-row'} items-center text-gray-200 justify-between py-[0.5vh]  ${index % 2 === 0 ? 'bg-primaryBlue' : 'bg-primaryBlue bg-opacity-60 hover:bg-opacity-90'} hover:bg-gray-700 rounded-xl text-sm md:text-base lg:text-lg transition-all duration-[2000] cursor-pointer`}
+                                    onClick={(e)=>{
+                                        e.preventDefault()
+                                        if (!selectedTeam[index]) {
                                             const newSelectedTeam = [...selectedTeam];
                                             newSelectedTeam[index] = !newSelectedTeam[index];
                                             setSelectedTeam(newSelectedTeam);
-                                        }}          
-                                    >
-                                        <MdExpandMore/>
-                                    </button>
-                                </span>
-                            </li>
+                                        }
+                                    }}
+                                >   
+                                    <div className={`flex flex-row w-full transition-all duration-1000`}>
+                                        <span className='text-left '>
+                                            <div className='pl-[0.5vw]'>
+                                                {
+                                                    index < 3 ? (
+                                                        <span className=''>
+                                                            <Image src={`/assets/medal/medal${index+1}.png`} className='min-w-[50px] max-w-[50px]' width={150} height={50} alt='KU Logo'/>
+                                                        </span>
+                                                    ) : 
+                                                    <p className='text-center text-sm bg-secondaryBlue bg-opacity-60 text-white px-[0.75vw] py-[0.5vh] rounded-full w-[50px] cursor-default'>{index+1}</p>
+                                                
+                                                }
+                                            </div>
+                                        </span>
+                                        <span className='flex w-full items-center'>
+                                            <span className='flex items-center pl-[1.5vw] gap-x-[1vw]'>
+                                                <h1 className=''>
+                                                    {team.teamName}
+                                                </h1>                               
+                                            </span>
+                                        </span>
+                                        <span className='w-full flex justify-end'>
+                                                <p className='flex items-center justify-center text-center text-sm  hover:bg-secondaryBlue hover:bg-opacity-50 text-white px-[0.75vw] py-[0.5vh] rounded-full w-[50px] cursor-default'>
+                                                    {team.totalScore}
+                                                </p>                                    
+                                        </span>
+                                        <span className='flex justify-center items-center text-center pr-[1vw]'>
+                                            <button
+                                                className='hover:bg-secondaryBlue rounded-full p-[0.3rem] hover:bg-opacity-50 text-xl text-center'
+                                                onClick={(e)=>{
+                                                    e.preventDefault()
+                                                    const newSelectedTeam = [...selectedTeam];
+                                                    newSelectedTeam[index] = !newSelectedTeam[index];
+                                                    setSelectedTeam(newSelectedTeam);
+                                                }}          
+                                            >
+                                                {selectedTeam[index] ? <MdExpandLess/> : <MdExpandMore/>}
+                                            </button>
+                                        </span>                            
+                                    </div>
+                                {
+                                    selectedTeam[index] && (
+                                        <>
+                                            <li className='flex flex-row items-center text-gray-200  py-[0.5vh] bg-primaryBlue bg-opacity-60 rounded-xl text-sm md:text-base lg:text-lg transition-all duration-[1000]'>
+
+                                            </li>
+                                        </>
+                                    )
+                                }                                 
+                                </li>
+                         
+                            </>
+
+
                         ))}
                     </ul>
                 </div>
