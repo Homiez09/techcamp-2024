@@ -207,8 +207,8 @@ export default function Scoreboard({}: Props) {
                                                     </span>
                                                     <span>
                                                         <Progress 
-                                                            className={`${Number(team.percentage)*100 !== 100 ? 'custom-progress' : ''}`}
-                                                            percent={team.percentage ? Number((Number(team.percentage)*100).toFixed(0)) : 0} 
+                                                            className={`${(Number(team.percentage)/7)*100 !== 100 ? 'custom-progress' : ''}`}
+                                                            percent={team.percentage ? Number(((Number(team.percentage)/7)*100).toFixed(0)) : 0} 
                                                             type="line"
                                                             size="small"
                                                         />

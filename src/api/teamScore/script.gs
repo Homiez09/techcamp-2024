@@ -14,6 +14,29 @@ function onGetScores(){
   var Teams =[]
   for (let i = 3 ; i < data.length ; i++){
     const row = data[i]
+    var currentpercentage = 0
+    if (row[2]){
+      currentpercentage++
+    }
+    if (row[3]){
+      currentpercentage++
+    }
+    if (row[4]){
+      currentpercentage++
+    }
+    if (row[5]){
+      currentpercentage++
+    }
+    if (row[6]){
+      currentpercentage++
+    }
+    if (row[7]){
+      currentpercentage++
+    }
+    if (row[8]){
+      currentpercentage++
+    }
+
     const tempTeams = {
       teamID: row[0],
       teamName: row[1] || null,
@@ -25,11 +48,12 @@ function onGetScores(){
       kahoot3: row[7] || null,
       project: row[8] || null,
       summary: row[9] || null,
-      percentage: row[10] || null
-    };
+      percentage: currentpercentage
+    }
     Teams.push(tempTeams)
   }
   // console.log(Teams)
   const result = JSON.stringify(Teams)
   return ContentService.createTextOutput(result).setMimeType(ContentService.MimeType.JSON)
+
 }
