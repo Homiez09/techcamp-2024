@@ -124,7 +124,7 @@ export default function Scoreboard({}: Props) {
                                         </span>
                                         <span className='w-full flex items-center justify-end'>
                                                 <p className='flex items-center justify-center text-center  text-white w-[50px] cursor-default'>
-                                                    {team.summary}
+                                                    {team.summary ? team.summary : 0}
                                                 </p>                                    
                                         </span>
                                         <span className='flex justify-center items-center text-center pr-[1vw]'>
