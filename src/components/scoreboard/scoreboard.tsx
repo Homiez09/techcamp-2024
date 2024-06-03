@@ -2,8 +2,9 @@
 import React, { useState ,  useEffect } from 'react'
 
 import Link from 'next/link'
-
 import Image from 'next/image';
+
+import onGetScore from '@/api/teamScore/teams';
 
 import './progress.css'
 import { Progress } from 'antd';
@@ -11,6 +12,7 @@ import { Progress } from 'antd';
 import { FaGreaterThan } from "react-icons/fa6";
 import { MdExpandMore } from "react-icons/md";
 import { MdExpandLess } from "react-icons/md";
+
 
 
 
@@ -46,10 +48,10 @@ export default function Scoreboard({}: Props) {
     const [teams, setTeams] = useState(mockTeams)
     const [selectedTeam, setSelectedTeam] = useState(Array(20).fill(false))
 
-    useEffect(() => {
-        console.log(selectedTeam)
-    },[selectedTeam])
-
+    useEffect(()=>{
+        //getting teams data from api
+        onGetScore()
+    },[])
     
     return (
         <section className="min-h-screen text-white pt-[15vh] pb-[10vh]">
