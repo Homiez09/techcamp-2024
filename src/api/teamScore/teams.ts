@@ -1,5 +1,9 @@
+'use server'
+import { Team } from "@/interface/teamScoreDetail"
+
 export default async function onGetScore(){
-    const response = await fetch(`${process.env.onGetScoreUrl}`)
-    const data = await response.json()
-    console.log(data)
+    //getting data from the API => .env file
+    const response = await fetch(`${process.env.OnGetScoreURL}`)
+    const data : Team[] = await response.json()
+    return data 
 }
