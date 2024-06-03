@@ -44,13 +44,18 @@ const mockTeams = [
 ];
 
 export default function Scoreboard({}: Props) {
-    const [teams, setTeams] = useState<Team[]>(mockTeams)
+    const [teams, setTeams] = useState<Team[]>([])
     const [selectedTeam, setSelectedTeam] = useState(Array(20).fill(false))
 
     useEffect(()=>{
         //getting teams data from api
-        console.log('getting data')
-
+        onGetScore().then((data) => {
+            // console.log(data)
+            setTeams(data)
+        }).catch((error) => {
+            console.log(error)
+            
+        })
     },[])
     
     return (
@@ -202,8 +207,8 @@ export default function Scoreboard({}: Props) {
                                                     </span>
                                                     <span>
                                                         <Progress 
-                                                            className={`${Number((team.percentage).replace('%','')) !== 100 ? 'custom-progress' : ''}`}
-                                                            percent={Number((team.percentage).replace('%',''))} 
+                                                            className={`${Number(team.percentage)*100 !== 100 ? 'custom-progress' : ''}`}
+                                                            percent={team.percentage ? Number((Number(team.percentage)*100).toFixed(0)) : 0} 
                                                             type="line"
                                                             size="small"
                                                         />

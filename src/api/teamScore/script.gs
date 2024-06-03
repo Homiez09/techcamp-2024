@@ -32,5 +32,4 @@ function onGetScores(){
   // console.log(Teams)
   const result = JSON.stringify(Teams)
   return ContentService.createTextOutput(result).setMimeType(ContentService.MimeType.JSON)
-
 }
