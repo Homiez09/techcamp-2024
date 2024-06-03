@@ -5,6 +5,7 @@ import ScrollToSection from './ScrollToSection';
 import { useEffect, useState } from 'react';
 import IconClient from './IconClient';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 // "/" คือ ไปหน้าใหม่ ในขณะที่ ไม่ใช่ "/" คือ ไปยัง section ในหน้าเดิม
 const sectionItems = [
@@ -25,12 +26,12 @@ const sectionItems = [
         content: "ช่องทางการติดต่อ"
     },
     {
-        to: 'scoreboard',
-        content: 'คะแนนทีม'
-    },
+        content : 'คะแนนทีม'
 ]
 
 export default function Navbar() {
+    const router = useRouter();
+
     const [lastScroll, setLastScroll] = useState<number>(0);
     const [direction, setDirection] = useState<string>('up');
     const [currentSection, setCurrentSection] = useState<string>('index');
@@ -83,7 +84,7 @@ export default function Navbar() {
                 <div className="flex flex-row justify-between items-center w-full lg:px-24 max-lg:hidden">
                     {sectionItems.map((section, index) => (
                         section.to.startsWith("/") ? <Link key={index} href={section.to}>{section.content}</Link> :
-                            <ScrollToSection key={index} to={section.to} content={section.content} className={currentSection === section.to ? "text-secondary" : "cursor-pointer hover:text-secondary"} />
+                        <ScrollToSection key={index} to={section.to} content={section.content} className={currentSection === section.to ? "text-secondary" : "cursor-pointer hover:text-secondary"} />
                     ))}
                 </div>
                 <div className="flex flex-row lg:hidden items-center" onClick={() => setIsMenu((isMenu) => !isMenu)}>

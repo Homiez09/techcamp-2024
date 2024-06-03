@@ -18,6 +18,9 @@ const config: Config = {
       colors: {
         primary: "#06011F",
         secondary: "#EC1C24",
+        primaryBlue : '#192A3F',
+        secondaryBlue : '#121E2D',
+
       },
       animation: {
         fade: 'fadeOut 2s ease-in-out',
