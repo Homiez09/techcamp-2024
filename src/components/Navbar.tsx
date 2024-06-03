@@ -26,7 +26,9 @@ const sectionItems = [
         content: "ช่องทางการติดต่อ"
     },
     {
+        to: "/scoreboard",
         content : 'คะแนนทีม'
+    }
 ]
 
 export default function Navbar() {
