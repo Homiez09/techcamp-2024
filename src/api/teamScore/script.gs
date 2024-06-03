@@ -1,3 +1,10 @@
+function doGet(e){
+  const action = e.parameter.action
+  if (action == 'onGetScores'){
+    return onGetScores()
+  }
+}
+
 function onGetScores(){
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Overall")
   const dataRange = sheet.getDataRange()
@@ -22,6 +29,8 @@ function onGetScores(){
     };
     Teams.push(tempTeams)
   }
-  console.log(Teams)
+  // console.log(Teams)
+  const result = JSON.stringify(Teams)
+  return ContentService.createTextOutput(result).setMimeType(ContentService.MimeType.JSON)
 
 }
