@@ -91,7 +91,7 @@ export default function Scoreboard({}: Props) {
                         {teams.map((team, index) => (
                                 <li
                                     key={team.teamID}
-                                    className={`flex ${selectedTeam[index] ? 'flex-col' : 'flex-row'} items-center text-gray-200 justify-between py-[0.5vh]  ${index % 2 === 0 ? 'bg-primaryBlue' : 'bg-primaryBlue bg-opacity-60 hover:bg-opacity-90'} hover:bg-gray-700 hover:scale-[1.01] rounded-xl text-sm md:text-base lg:text-lg transition-transform duration-200 cursor-pointer`}
+                                    className={`flex ${selectedTeam[index] ? 'flex-col' : 'flex-row'} items-center text-gray-200 justify-between py-[1vh]  ${index % 2 === 0 ? 'bg-primaryBlue' : 'bg-primaryBlue bg-opacity-60 hover:bg-opacity-90'} hover:bg-gray-700 hover:scale-[1.01] rounded-xl text-sm md:text-base lg:text-lg transition-transform duration-200 cursor-pointer`}
                                     onClick={(e)=>{
                                         e.preventDefault()
                                         if (!selectedTeam[index]) {
