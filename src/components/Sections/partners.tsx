@@ -15,6 +15,11 @@ export default function Partners() {
             href: "#"
         },
         {
+            src: "sponsors/MajorCineplex.png",
+            alt: "Major Cineplex",
+            href: "#",
+        },
+        {
             src: "sponsors/Kohkae.png",
             alt: "kohkae",
             href: "#",
@@ -22,11 +27,6 @@ export default function Partners() {
         {
             src: "sponsors/Lactasoy.png",
             alt: "Lactasoy",
-            href: "#",
-        },
-        {
-            src: "sponsors/MajorCineplex.png",
-            alt: "Major Cineplex",
             href: "#",
         },
     ];
