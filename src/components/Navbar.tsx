@@ -10,11 +10,15 @@ import Link from 'next/link';
 const sectionItems = [
     {
         to: "about",
-        content: "แนะนำค่าย และ TIMELINE"
+        content: "Tech Camp คืออะไร?"
     },
     {
-        to: "/techcamp",
-        content: "ค่ายที่ผ่านมา"
+        to: "timeline",
+        content: "ไทม์ไลน์"
+    },
+    {
+        to: "my-camp",
+        content: "ค่ายของเรา"
     },
     {
         to: "partners",
@@ -22,10 +26,10 @@ const sectionItems = [
     },
     {
         to: "contact",
-        content: "ช่องทางการติดต่อ"
+        content: "ติดต่อเรา"
     },
     {
-        to: 'scoreboard',
+        to: '/scoreboard',
         content: 'คะแนนทีม'
     },
 ]
@@ -45,10 +49,7 @@ export default function Navbar() {
         sections.forEach((section) => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                if (section.id === "timeline") section.id = "about";
-                setCurrentSection(section.id);
-            }
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) setCurrentSection(section.id);
         })
         console.log(currentSection)
     }, [lastScroll])

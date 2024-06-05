@@ -6,6 +6,7 @@ import IconClient from "@/components/IconClient";
 import TimeLine from "@/components/Sections/TimeLine";
 import Partners from "@/components/Sections/partners";
 import MainLayout from "@/components/Layouts/MainLayout";
+import MyCamp from "@/components/Sections/MyCamp";
 
 export default function Page() {
   return (
@@ -26,6 +27,7 @@ export default function Page() {
       <div className="min-h-screen bg-secondary-texture bg-center pt-20">
         <About />
         <TimeLine />
+        <MyCamp />
         <Partners />
         <Contact />
       </div>
