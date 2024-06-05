@@ -1,11 +1,15 @@
 import React from 'react'
 
+import MainLayout from '@/components/Layouts/MainLayout'
+import Scoreboard from '@/components/scoreboard/scoreboard'
 type Props = {}
 
 export default function page({}: Props) {
   return (
-    <div>
-        Score
-    </div>
+    <MainLayout>
+      <section className="min-h-screen bg-secondary-texture bg-center">
+        <Scoreboard/>
+      </section>
+    </MainLayout>
   )
 }
