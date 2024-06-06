@@ -124,7 +124,7 @@ export default function Scoreboard({}: Props) {
                                         </span>
                                         <span className='w-full flex items-center justify-end'>
                                                 <p className='flex items-center justify-center text-center  text-white w-[50px] cursor-default'>
-                                                    {team.summary ? team.summary : 0}
+                                                    {team.summary ? team.summary.toFixed(2) : 0}
                                                 </p>                                    
                                         </span>
                                         <span className='flex justify-center items-center text-center pr-[1vw]'>
@@ -154,7 +154,7 @@ export default function Scoreboard({}: Props) {
                                                             Problem Solving 1
                                                         </h1>
                                                         <p>
-                                                            {team.solve1 ? team.solve1 : 0} 
+                                                            {team.solve1 ? team.solve1.toFixed(2) : 0} 
                                                         </p>
                                                     </span>
                                                     <span className='flex flex-row justify-between w-full'>
@@ -162,7 +162,7 @@ export default function Scoreboard({}: Props) {
                                                             Kahoot 1
                                                         </h1>
                                                         <p>
-                                                            {team.kahoot1 ? team.kahoot1 : 0} 
+                                                            {team.kahoot1 ? team.kahoot1.toFixed(2) : 0} 
                                                         </p>
                                                     </span>
                                                     <span className='flex flex-row justify-between w-full'>
@@ -170,7 +170,7 @@ export default function Scoreboard({}: Props) {
                                                             Problem solving 2
                                                         </h1>
                                                         <p>
-                                                            {team.solve2 ? team.solve2 : 0} 
+                                                            {team.solve2 ? team.solve2.toFixed(2) : 0} 
                                                         </p>
                                                     </span>
                                                     <span className='flex flex-row justify-between w-full'>
@@ -178,7 +178,7 @@ export default function Scoreboard({}: Props) {
                                                             Kahoot 2
                                                         </h1>
                                                         <p>
-                                                            {team.kahoot2 ? team.kahoot2 : 0} 
+                                                            {team.kahoot2 ? team.kahoot2.toFixed(2) : 0} 
                                                         </p>
                                                     </span>
                                                     <span className='flex flex-row justify-between w-full'>
@@ -186,7 +186,7 @@ export default function Scoreboard({}: Props) {
                                                             Problem solving 3
                                                         </h1>
                                                         <p>
-                                                            {team.solve3 ? team.solve3 : 0} 
+                                                            {team.solve3 ? team.solve3.toFixed(2) : 0} 
                                                         </p>
                                                     </span>
                                                     <span className='flex flex-row justify-between w-full'>
@@ -194,7 +194,7 @@ export default function Scoreboard({}: Props) {
                                                             Kahoot 3
                                                         </h1>
                                                         <p>
-                                                            {team.kahoot3 ? team.kahoot3 : 0} 
+                                                            {team.kahoot3 ? team.kahoot3.toFixed(2) : 0} 
                                                         </p>
                                                     </span>
                                                     <span className='flex flex-row justify-between w-full'>
@@ -202,7 +202,7 @@ export default function Scoreboard({}: Props) {
                                                             Project
                                                         </h1>
                                                         <p>
-                                                            {team.project ? team.project : 0} 
+                                                            {team.project ? team.project.toFixed(2) : 0} 
                                                         </p>
                                                     </span>
                                                     <span>
