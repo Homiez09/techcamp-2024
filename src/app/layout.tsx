@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={ibmFont.className}>
+      <body className={ibmFont.className + " overscroll-none"}>
         <AntdStyledComponentsRegistry>
           {children}
         </AntdStyledComponentsRegistry>
