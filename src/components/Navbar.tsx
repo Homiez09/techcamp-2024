@@ -54,25 +54,25 @@ export default function Navbar() {
         console.log(currentSection)
     }, [lastScroll])
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const currentScroll = window.pageYOffset;
-            if (currentScroll > lastScroll && currentScroll > 100) {
-                setIsMenu(false);
-                setDirection('down');
-            } else {
-                setIsMenu(false);
-                setDirection('up');
-            }
-            setLastScroll(currentScroll);
-        };
+    // useEffect(() => {
+    //     const handleScroll = () => {
+    //         const currentScroll = window.pageYOffset;
+    //         if (currentScroll > lastScroll && currentScroll > 100) {
+    //             setIsMenu(false);
+    //             setDirection('down');
+    //         } else {
+    //             setIsMenu(false);
+    //             setDirection('up');
+    //         }
+    //         setLastScroll(currentScroll);
+    //     };
 
-        window.addEventListener('scroll', handleScroll);
+    //     window.addEventListener('scroll', handleScroll);
 
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, [lastScroll])
+    //     return () => {
+    //         window.removeEventListener('scroll', handleScroll);
+    //     };
+    // }, [lastScroll])
 
     return (
         <div className={`fixed z-20 w-full ${direction === 'down' ? "animate-navbarUp translate-y-[-100%]" : "animate-navbarDown translate-y-0"}`}>
